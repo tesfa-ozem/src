@@ -1,0 +1,77 @@
+﻿@{
+    ViewData["Title"] = "Login";
+    Layout = "~/Views/Shared/_LayoutAgents.cshtml";
+}
+@model Accounts.ViewModels.AgentsViewModel
+@{
+    ViewData["Title"] = "Create Agent";
+}
+
+
+<div class="container">
+    @await Html.PartialAsync("_NavPartial")
+    <div class="row">
+        <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
+            <div class='signup'>
+                <form asp-controller="Agents" asp-action="RegisterSingleUser" method="post">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+                    <div class="form-row">
+                        <div class="form-group ">
+                            <label asp-for="FirstName" class="control-label"></label>
+                            <input asp-for="FirstName" class="form-control" />
+                            <span asp-validation-for="FirstName" class="text-danger"></span>
+                        </div>
+
+                        <div class="form-group ">
+                            <label asp-for="LastName" class="control-label"></label>
+                            <input asp-for="LastName" class="form-control" />
+                            <span asp-validation-for="LastName" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="UserName" class="control-label"></label>
+                        <input asp-for="UserName" class="form-control" />
+                        <span asp-validation-for="UserName" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="PhoneNumber" class="control-label"></label>
+                        <input asp-for="PhoneNumber" class="form-control" />
+                        <span asp-validation-for="PhoneNumber" class="text-danger"></span>
+                    </div>
+                    <div class="form-row">
+                        <label asp-for="IdNumber" class="control-label"></label>
+                        <input asp-for="IdNumber" class="form-control" />
+                        <span asp-validation-for="IdNumber" class="text-danger"></span>
+                    </div>
+                    <div class="form-row">
+                        <label asp-for="SUBCOUNTY" class="control-label"></label>
+                        <input asp-for="SUBCOUNTY" class="form-control" />
+                        <span asp-validation-for="SUBCOUNTY" class="text-danger"></span>
+                    </div>
+                    <div class="form-row">
+                        <label asp-for="WARD" class="control-label"></label>
+                        <input asp-for="WARD" class="form-control" />
+                        <span asp-validation-for="WARD" class="text-danger"></span>
+                    </div>
+                    <div class="form-row">
+                        <label asp-for="VILLAGE" class="control-label"></label>
+                        <input asp-for="VILLAGE" class="form-control" />
+                        <span asp-validation-for="VILLAGE" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <div class="form-group">
+                            <input type="submit" value="Create" class="btn btn-default" />
+                        </div>
+                    </div>
+
+                </form>
+            </div>
+
+        </main>
+    </div>
+
+</div>
+
+
+

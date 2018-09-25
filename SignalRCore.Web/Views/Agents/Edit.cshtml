@@ -1,0 +1,82 @@
+﻿@model SignalRCore.Web.Models.People
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Views/Shared/_LayoutAgents.cshtml";
+}
+@await Html.PartialAsync("_NavPartial")
+@await Html.PartialAsync("_MenuBarPartial")
+
+<div id="page-wrapper">
+    <div class="main-page">
+        <!--grids-->
+        <div class="grids">
+            <div class="progressbar-heading grids-heading">
+                <h2>Forms</h2>
+            </div>
+            @using (Html.BeginForm("Post", "Agents", FormMethod.Post, new { }))
+            {
+                @Html.ValidationSummary(true)
+
+            <fieldset>
+                <legend></legend>
+                <div class="editor-label">
+                    ID
+                </div>
+                <div class="editor-field">
+                    @Html.TextBoxFor(model => model.Id, new { @readonly = "readonly" })
+                </div>
+                <div class="editor-label">
+                    Name
+                </div>
+                <div class="editor-field">
+                    @Html.TextBoxFor(model => model.FirstName)
+                    @Html.ValidationMessageFor(model => model.FirstName)
+                </div>
+                <div class="editor-label">
+                    Description
+                </div>
+                <div class="editor-field">
+                    @Html.TextBoxFor(model => model.LastName)
+                    @Html.ValidationMessageFor(model => model.LastName)
+                </div>
+                <div class="editor-field">
+                    @Html.TextBoxFor(model => model.MiddleName)
+                    @Html.ValidationMessageFor(model => model.MiddleName)
+                </div>
+                <div class="editor-label">
+                    Description
+                </div>
+                <div class="editor-field">
+                    @Html.TextBoxFor(model => model.IdentificationType)
+                    @Html.ValidationMessageFor(model => model.IdentificationType)
+                </div>
+                <div class="editor-field">
+                    @Html.TextBoxFor(model => model.IdentificationNo)
+                    @Html.ValidationMessageFor(model => model.IdentificationNo)
+                </div>
+                <div class="editor-label">
+                    Description
+                </div>
+                <div class="editor-field">
+                    @Html.TextBoxFor(model => model.PhoneNumber)
+                    @Html.ValidationMessageFor(model => model.PhoneNumber)
+                </div>
+                <div class="editor-field">
+                    @Html.TextBoxFor(model => model.Status)
+                    @Html.ValidationMessageFor(model => model.Status)
+                </div>
+                
+
+                <p>
+                    <input type="submit" value="Update" id="btnsave" />
+                </p>
+            </fieldset>
+            }
+            <div>
+                @Html.ActionLink("Close", "Index")
+            </div>
+        </div>
+        <!--//grids-->
+    </div>
+</div>
+

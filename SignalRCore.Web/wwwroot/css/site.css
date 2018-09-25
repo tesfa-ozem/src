@@ -1,0 +1,600 @@
+﻿body {
+    font-size: .875rem;
+}
+
+.feather {
+    width: 16px;
+    height: 16px;
+    vertical-align: text-bottom;
+}
+@media screen and (max-width: 700px) {
+  .sidebar-sticky {
+    width: 100%;
+    height: auto;
+    position: relative;
+  }
+  .sidebar-sticky a {float: left;}
+  div.content {margin-left: 0;}
+}
+
+/* On screens that are less than 400px, display the bar vertically, instead of horizontally */
+@media screen and (max-width: 400px) {
+  .sidebar-sticky a {
+    text-align: center;
+    float: none;
+  }
+}
+/*
+ * Sidebar
+ */
+
+.sidebar {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 100; /* Behind the navbar */
+    padding: 48px 0 0; /* Height of navbar */
+    box-shadow: inset -1px 0 0 rgba(0, 0, 0, .1);
+}
+
+.sidebar-sticky {
+    position: relative;
+    top: 0;
+    height: calc(100vh - 48px);
+    padding-top: .5rem;
+    overflow-x: hidden;
+    overflow-y: auto; /* Scrollable contents if viewport is shorter than content. */
+}
+
+@supports ((position: -webkit-sticky) or (position: sticky)) {
+    .sidebar-sticky {
+        position: -webkit-sticky;
+        position: sticky;
+    }
+}
+
+.sidebar .nav-link {
+    font-weight: 500;
+    color: #333;
+}
+
+    .sidebar .nav-link .feather {
+        margin-right: 4px;
+        color: #999;
+    }
+
+    .sidebar .nav-link.active {
+        color: #007bff;
+    }
+
+        .sidebar .nav-link:hover .feather,
+        .sidebar .nav-link.active .feather {
+            color: inherit;
+        }
+
+.sidebar-heading {
+    font-size: .75rem;
+    text-transform: uppercase;
+}
+
+/*
+ * Content
+ */
+
+[role="main"] {
+    padding-top: 48px; /* Space for fixed navbar */
+}
+
+/*
+ * Navbar
+ */
+
+.navbar-brand {
+    padding-top: .75rem;
+    padding-bottom: .75rem;
+    font-size: 1rem;
+    background-color: rgba(0, 0, 0, .25);
+    box-shadow: inset -1px 0 0 rgba(0, 0, 0, .25);
+}
+
+.navbar .form-control {
+    padding: .75rem 1rem;
+    border-width: 0;
+    border-radius: 0;
+}
+
+.form-control-dark {
+    color: #fff;
+    background-color: rgba(255, 255, 255, .1);
+    border-color: rgba(255, 255, 255, .1);
+}
+
+    .form-control-dark:focus {
+        border-color: transparent;
+        box-shadow: 0 0 0 3px rgba(255, 255, 255, .25);
+    }
+body {
+    background: #eee !important;
+}
+
+.wrapper {
+    margin-top: 80px;
+    margin-bottom: 80px;
+}
+
+.form-signin {
+    max-width: 380px;
+    padding: 15px 35px 45px;
+    margin: 0 auto;
+    background-color: #fff;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+    .form-signin .form-signin-heading,
+    .form-signin .checkbox {
+        margin-bottom: 30px;
+    }
+
+    .form-signin .checkbox {
+        font-weight: normal;
+    }
+
+    .form-signin .form-control {
+        position: relative;
+        font-size: 16px;
+        height: auto;
+        padding: 10px;
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        box-sizing: border-box;
+    }
+
+        .form-signin .form-control:focus {
+            z-index: 2;
+        }
+
+    .form-signin input[type="text"] {
+        margin-bottom: -1px;
+        border-bottom-left-radius: 0;
+        border-bottom-right-radius: 0;
+    }
+
+    .form-signin input[type="password"] {
+        margin-bottom: 20px;
+        border-top-left-radius: 0;
+        border-top-right-radius: 0;
+    }
+
+    .date-picker {
+        margin: 200px auto;
+      }
+      
+      .date-picker {
+        width: 260px;
+        height: auto;
+        max-height: 50px;
+        background: white;
+        position: relative;
+        overflow: hidden;
+        transition: all 0.3s 0s ease-in-out;
+      }
+      .date-picker .input {
+        width: 100%;
+        height: 50px;
+        font-size: 0;
+        cursor: pointer;
+      }
+      .date-picker .input .result, .date-picker .input button {
+        display: inline-block;
+        vertical-align: top;
+      }
+      .date-picker .input .result {
+        width: calc(100% - 50px);
+        height: 50px;
+        line-height: 50px;
+        font-size: 16px;
+        padding: 0 10px;
+        color: grey;
+        box-sizing: border-box;
+      }
+      .date-picker .input button {
+        width: 50px;
+        height: 50px;
+        background-color: #8392A7;
+        color: white;
+        line-height: 50px;
+        border: 0;
+        font-size: 18px;
+        padding: 0;
+      }
+      .date-picker .input button:hover {
+        background-color: #68768A;
+      }
+      .date-picker .input button:focus {
+        outline: 0;
+      }
+      .date-picker .calendar {
+        position: relative;
+        width: 100%;
+        background: #fff;
+        border-radius: 0px;
+        overflow: hidden;
+      }
+      .date-picker .ui-datepicker-inline {
+        position: relative;
+        width: 100%;
+      }
+      .date-picker .ui-datepicker-header {
+        height: 100%;
+        line-height: 50px;
+        background: #8392A7;
+        color: #fff;
+        margin-bottom: 10px;
+      }
+      .date-picker .ui-datepicker-prev, .date-picker .ui-datepicker-next {
+        width: 20px;
+        height: 20px;
+        text-indent: 9999px;
+        border: 2px solid #fff;
+        border-radius: 100%;
+        cursor: pointer;
+        overflow: hidden;
+        margin-top: 12px;
+      }
+      .date-picker .ui-datepicker-prev {
+        float: left;
+        margin-left: 12px;
+      }
+      .date-picker .ui-datepicker-prev:after {
+        -webkit-transform: rotate(45deg);
+                transform: rotate(45deg);
+        margin: -43px 0px 0px 8px;
+      }
+      .date-picker .ui-datepicker-next {
+        float: right;
+        margin-right: 12px;
+      }
+      .date-picker .ui-datepicker-next:after {
+        -webkit-transform: rotate(-135deg);
+                transform: rotate(-135deg);
+        margin: -43px 0px 0px 6px;
+      }
+      .date-picker .ui-datepicker-prev:after, .date-picker .ui-datepicker-next:after {
+        content: "";
+        position: absolute;
+        display: block;
+        width: 4px;
+        height: 4px;
+        border-left: 2px solid #fff;
+        border-bottom: 2px solid #fff;
+      }
+      .date-picker .ui-datepicker-prev:hover, .date-picker .ui-datepicker-next:hover, .date-picker .ui-datepicker-prev:hover:after, .date-picker .ui-datepicker-next:hover:after {
+        border-color: #68768A;
+      }
+      .date-picker .ui-datepicker-title {
+        text-align: center;
+      }
+      .date-picker .ui-datepicker-calendar {
+        width: 100%;
+        text-align: center;
+      }
+      .date-picker .ui-datepicker-calendar thead tr th span {
+        display: block;
+        width: 100%;
+        color: #8392A7;
+        margin-bottom: 5px;
+        font-size: 13px;
+      }
+      .date-picker .ui-state-default {
+        display: block;
+        text-decoration: none;
+        color: #b5b5b5;
+        line-height: 40px;
+        font-size: 12px;
+      }
+      .date-picker .ui-state-default:hover {
+        background: rgba(0, 0, 0, 0.02);
+      }
+      .date-picker .ui-state-highlight {
+        color: #68768A;
+      }
+      .date-picker .ui-state-active {
+        color: #68768A;
+        background-color: rgba(131, 146, 167, 0.12);
+        font-weight: 600;
+      }
+      .date-picker .ui-datepicker-unselectable .ui-state-default {
+        color: #eee;
+        border: 2px solid transparent;
+      }
+      .date-picker.open {
+        max-height: 400px;
+      }
+      .date-picker.open .input button {
+        background: #68768A;
+      }
+
+      section {
+        width: 80vw;
+        max-width: 64rem;
+        min-width: 58.9rem;
+        margin: 0 auto;
+      }
+      @media screen and (max-width: 480px) {
+        section {
+          min-width: 19rem;
+        }
+      }
+      @media screen and (max-width: 480px) {
+        .title {
+          font-size: 3rem;
+          text-align: center;
+          position: relative;
+          padding-top: 6vh;
+        }
+      }
+     
+      @media screen and (max-width: 480px) {
+        .title:after {
+          left: 50%;
+          position: absolute;
+          -webkit-transform: translate(-50%, 2rem);
+                  transform: translate(-50%, 2rem);
+        }
+      }
+      
+      .cards {
+        padding-top: 0;
+        display: flex;
+        justify-content: space-between;
+      }
+      @media screen and (max-width: 480px) {
+        .cards {
+          flex-direction: column;
+          align-items: center;
+        }
+      }
+      
+      .card {
+        width: 15rem;
+        height: 20.5rem;
+        background-color: #f9fbfb;
+        border-radius: 6px;
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        color: #5a6c7a;
+        font-size: 1rem;
+        font-weight: 700;
+        letter-spacing: .05rem;
+        box-shadow: 0 1rem 3rem #aac1c7;
+      }
+      @media screen and (max-width: 480px) {
+        .card {
+          margin-bottom: 2rem;
+        }
+      }
+      .card__svg-container {
+        height: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: flex-end;
+      }
+      .card__svg-wrapper {
+        width: 6rem;
+      }
+      .card__count-container {
+        flex-grow: 1;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .card__count-text {
+        -webkit-transform: translate(0, -0.5rem);
+                transform: translate(0, -0.5rem);
+      }
+      .card__count-text--big {
+        text-transform: uppercase;
+        font-size: 3rem;
+        font-weight: 300;
+      }
+      .card__stuff-container {
+        margin: 0 auto;
+        width: 90%;
+        height: 15%;
+        border-top: 2px solid #e7edef;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .card__stuff-icon, .card__stuff-text {
+        display: inline-block;
+      }
+      .card__stuff-icon {
+        width: 1.3rem;
+        height: 1.3rem;
+        -webkit-transform: translate(0, -0.3rem);
+                transform: translate(0, -0.3rem);
+      }
+      .card__stuff-text {
+        text-transform: uppercase;
+        margin-left: .4rem;
+        -webkit-transform: translate(0, -0.2rem);
+                transform: translate(0, -0.2rem);
+      }
+      .card:after {
+        content: "";
+        display: block;
+        position: absolute;
+        top: -2rem;
+        left: 0;
+        width: 12rem;
+        height: 4.625rem;
+        -webkit-transform: translate(1.5rem, 22.5rem);
+                transform: translate(1.5rem, 22.5rem);
+        pointer-events: none;
+      }
+      .card--oil:after {
+        background-image: radial-gradient(ellipse at top, rgba(106, 122, 135, 0.5), transparent 70%);
+      }
+      .card--tree:after {
+        background-image: radial-gradient(ellipse at top, rgba(106, 191, 96, 0.5), transparent 70%);
+      }
+      .card--water:after {
+        background-image: radial-gradient(ellipse at top, rgba(96, 203, 231, 0.5), transparent 70%);
+      }
+      
+      *, *:before, *:after {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      @media screen and (max-width: 620px) {
+        html, body {
+          font-size: 45%;
+        }
+      }
+      @media screen and (max-width: 480px) {
+        html, body {
+          font-size: 70%;
+        }
+      }
+      
+      .forhtml {
+        background: radial-gradient(circle at bottom, #aac1c7, #f7fbfb 80%) no-repeat center center fixed;
+        background-size: cover;
+      }
+      .kpi-item {
+        
+        width: 250px;
+        height: 250px;
+        margin-right: 40px;
+        margin-bottom: 15px;
+        border: 1px solid #ebebeb;
+        border-radius: 3px;
+      }
+      
+      .kpi-header {
+        position: relative;
+        height: 60px;
+        padding: 10px;
+        background-color: #fff;
+      }
+      
+      .kpi-header h3 {
+        margin: 0;
+        font-size: 18px;
+        line-height: 18px;
+      }
+      
+      .kpi-header p {
+        position: absolute;
+        color: #666;
+        font-size: 14px;
+        margin: 0;
+        left: 10px;
+        bottom: 8px;
+      }
+      
+      .kpi-growth .kpi-header {
+        border-bottom: 3px solid #0A58A4;
+      }
+      
+      .kpi-growth > .kpi-header {
+       background-color: #E6EEF6;
+      }
+      
+      .kpi-growth h3,
+      .kpi-growth .value {
+        color: #0A58A4;
+      }
+      
+      .kpi-flawless .kpi-header {
+        border-bottom: 3px solid #BC1A40;
+      }
+      
+      .kpi-flawless > .kpi-header {
+       background-color: #F8E8EC;
+      }
+      
+      .kpi-flawless h3,
+      .kpi-flawless .value {
+        color: #BC1A40;
+      }
+      
+      .kpi-people .kpi-header {
+        border-bottom: 3px solid #198D69;
+      }
+      
+      .kpi-people > .kpi-header {
+       background-color: #E8F4F0;
+      }
+      
+      .kpi-people h3,
+      .kpi-people .value {
+        color: #198D69;
+      }
+      
+      .kpi-body {
+        position: relative;
+        height: 185px;
+        background-color: #fff;
+      }
+      
+      .kpi-body .kpi-text {
+        margin: 0;
+        font-size: 42px;
+        line-height: 160px;
+        text-align: center;
+      }
+      
+      .kpi-body .kpi-details-tr {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        margin:0;
+        font-size: 16px;
+        color: #666;
+      }
+      
+      .kpi-details-tl {
+        position: absolute;
+        top: 10px;
+        left: 10px;
+        margin:0;
+        font-size: 16px;
+        line-height: 16px;
+        color: #666;
+      }
+      
+      .kpi-details-tl img {
+        position: relative;
+        top:1px;
+      }
+      
+      .green {
+        color: #2ecc71;
+      }
+      
+      .yellow {
+        color: #f1c40f;  
+      }
+      
+      .red {
+        color: #e74c3c;
+      }
+      
+      .sparkline {
+        position: absolute;
+        bottom: 10px;
+        left: 10px;
+      }
+
+.ChartWrapper {
+    background-color: #fff;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+

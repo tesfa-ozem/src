@@ -1,0 +1,21 @@
+@model SignalRCore.Web.Models.Login
+
+@{
+    ViewData["Title"] = "Login";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section Styles {
+    <link href="@Url.Content("~/css/site.css")" rel="stylesheet" type="text/css" />
+}
+<div class="wrapper">
+    <form class="form-signin" asp-action="Login">
+        <h2 class="form-signin-heading">Please login</h2>
+        <input type="text" asp-for="UserName" class="form-control" name="username" placeholder="Email Address" required="" autofocus="" />
+        <input type="password" asp-for="Password" class="form-control" name="password" placeholder="Password" required="" />
+        <label class="checkbox">
+            <input type="checkbox" value="remember-me" id="rememberMe" name="rememberMe"> Remember me
+        </label>
+        <button class="btn btn-lg btn-primary btn-block" type="submit" asp-controller="Agents" asp-action="ValidateLogin">Login</button>
+    </form>
+</div>

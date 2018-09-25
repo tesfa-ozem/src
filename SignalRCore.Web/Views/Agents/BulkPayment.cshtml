@@ -1,0 +1,82 @@
+
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_LayoutAgents.cshtml";
+}
+
+<div class="container">
+    <div class="row">
+        @await Html.PartialAsync("_NavPartial")
+        <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
+            <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+                <h1 class="h2">Dashboard</h1>
+                <div class="btn-toolbar mb-2 mb-md-0">
+                    <div class="btn-group mr-2">
+                        <button class="btn btn-sm btn-outline-secondary">Share</button>
+                        <button class="btn btn-sm btn-outline-secondary">Export</button>
+                    </div>
+                    <button class="btn btn-sm btn-outline-secondary dropdown-toggle">
+                        <span data-feather="calendar"></span>
+                        This week
+                    </button>
+                    <div class="input-group">
+                    <input type="text" class="daterange" />
+                    <div class="input-group-append">
+                    <button id="reportrange" class="btn btn-sm btn-outline-secondary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dropdown
+                        <span data-feather="calendar"></span>
+                    </button>
+                    <div class="dropdown-menu">
+                    <a class="dropdown-item" href="#">Action</a>
+                    <a class="dropdown-item" href="#">Another action</a>
+                    <a class="dropdown-item" href="#">Something else here</a>
+                    <div role="separator" class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="#">Separated link</a>
+                    </div>
+                    </div>
+                    </div>
+                </div>
+            </div>
+            <form asp-controller="Agents" asp-action="UploadBulkFile" method="post"
+                  enctype="multipart/form-data">
+
+                <input type="file" name="file" />
+                <button type="submit">Upload File</button>
+            </form>
+            @*<canvas class="my-4 w-100" id="myChart" width="900" height="380"></canvas>*@
+            <h2>Section title</h2>
+                <div class="table-responsive">
+                    <table class="display table table-striped table-sm">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Id Number</th>
+                                <th>First Name</th>
+                                <th>Last Name</th>
+                                
+                                <th>Phone Number</th>
+                                <th>Subcounty</th>
+                                <th>Ward</th>
+                                <th>User Name</th>
+                               
+
+                            </tr>
+                        </thead>
+                        <tbody>
+                            
+
+                        </tbody>
+                    </table>
+                </div>
+        </main>
+    </div>
+</div>
+
+@section Scripts {
+   <script type="text/javascript">
+       $('.daterange').daterangepicker();
+       $(document).ready(function () {
+           $('#table_id').DataTable();
+       });
+</script>
+}
