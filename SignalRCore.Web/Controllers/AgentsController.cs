@@ -94,6 +94,7 @@ namespace Accounts.Controllers
             {
                 InventoryContext context = new InventoryContext();
                 if (test != null)
+
                 {
                     bool isNew = false;
                     var data = context.People.Where(p => p.Id == test.Id).FirstOrDefault();
