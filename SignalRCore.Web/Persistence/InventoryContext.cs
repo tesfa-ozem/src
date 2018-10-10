@@ -16,12 +16,12 @@ namespace SignalRCore.Web.Persistence
         }
         public InventoryContext()
         {
-
+            
         }
         
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            
+            optionsBuilder.UseSqlServer(Hubs.ConnectionProperties.Configuration.GetConnectionString("DefaultConnection")); 
         }
 
         

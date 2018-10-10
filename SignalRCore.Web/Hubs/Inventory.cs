@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.SignalR;
+using Microsoft.Extensions.Configuration;
 using SignalRCore.Web.Repository;
 using System;
 using System.Collections.Generic;
@@ -19,5 +20,11 @@ namespace SignalRCore.Web.Hubs
         
 
         
+    }
+
+
+    public static class ConnectionProperties
+    {
+        public static IConfiguration Configuration { get; internal set; }
     }
 }

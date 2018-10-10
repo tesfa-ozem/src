@@ -13,15 +13,7 @@
                             <li>
                                 <a asp-controller="Agents" asp-action="Registration" >All Registrations</a>
                             </li>
-                            <li>
-                                <a href="grid.html">Principle</a>
-                            </li>
-                            <li>
-                                <a href="grid.html">Spouse</a>
-                            </li>
-                            <li>
-                                <a href="grid.html">Dependants</a>
-                            </li>
+                           
                         </ul>
                         <!-- /nav-second-level -->
                     </li>
@@ -29,7 +21,10 @@
                         <a href="#"><i class="fa fa-book nav_icon"></i>Payments <span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level collapse">
                             <li>
-                                <a href="buttons.html">Normal Payments</a>
+                                <a asp-controller="Agents" asp-action="Payments">Normal Payments</a>
+                            </li>
+                            <li>
+                                <a asp-controller="Agents" asp-action="MakePayments">Make Payments</a>
                             </li>
                             <li>
                                 <a href="typography.html">Bulk Payment</a>

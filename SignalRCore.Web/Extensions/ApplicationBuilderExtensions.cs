@@ -12,6 +12,7 @@ namespace SignalRCore.Web
         {
             var serviceProvider = services.ApplicationServices;
             var subscription = serviceProvider.GetService<T>();
+            
             subscription.Configure(connectionString);
         }
     }

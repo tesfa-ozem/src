@@ -1,97 +1,150 @@
-
+@model string
 
 @{
     ViewData["Title"] = "Index";
     Layout = "~/Views/Shared/_LayoutAgents.cshtml";
+
+
+
 }
 
 
 
-
-<div class="container-fluid">
-    <div class="row">
-        @await Html.PartialAsync("_NavPartial")
-        <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
-            <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-                <h1 class="h2">All Payments</h1>
-                <div class="btn-toolbar mb-2 mb-md-0">
-                    <div class="btn-group mr-2">
-                        <button class="btn btn-sm btn-outline-secondary">Share</button>
-                        <button class="btn btn-sm btn-outline-secondary">Export</button>
+@await Html.PartialAsync("_NavPartial")
+@await Html.PartialAsync("_MenuBarPartial")
+<div id="page-wrapper">
+    <div class="main-page">
+        <!--grids-->
+        <div class="grids">
+            <div class="progressbar-heading grids-heading">
+                <h2>Blank Page</h2>
+            </div>
+            <div class="row mb40">
+                <div class="col-md-12">
+                    <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+                        <h1 class="h2">All Payments</h1>
+                        <div class="btn-toolbar mb-2 mb-md-0">
+                            <div class="btn-group mr-2">
+                                <button class="btn btn-sm btn-outline-secondary">Share</button>
+                                <button class="btn btn-sm btn-outline-secondary">Export</button>
+                            </div>
+                            <div class="input"></div>
+                            <button class="btn btn-sm btn-outline-secondary dropdown-toggle">
+                                <span data-feather="calendar"></span>
+                                This week
+                            </button>
+                            <div class="calendar"></div>
+                        </div>
                     </div>
-                    <div class="input"></div>
-                    <button class="btn btn-sm btn-outline-secondary dropdown-toggle">
-                        <span data-feather="calendar"></span>
-                        This week
-                    </button>
-                    <div class="calendar"></div>
+
+                    @*<canvas class="my-4 w-100" id="myChart" width="900" height="380"></canvas>*@
+                    <h2>Section title</h2>
+                    <div class="table-responsive">
+                        <table id="Registration" class="table table-striped table-bordered dt-responsive nowrap" width="100%" cellspacing="0">
+                            <thead>
+                                <tr>
+
+                                    <th>Phone No</th>
+                                    <th>Account No </th>
+                                    <th>Card No</th>
+                                    <th>Amount</th>
+                                    <th>Transaction Date</th>
+                                    <th>Transacion Code</th>
+                                    <th>Payment Name</th>
+                                    <th>Edit</th>
+
+
+
+
+
+
+
+                                </tr>
+                            </thead>
+
+                        </table>
+                    </div>
                 </div>
             </div>
-            
-            @*<canvas class="my-4 w-100" id="myChart" width="900" height="380"></canvas>*@
-            <h2>Section title</h2>
-                <div class="table-responsive">
-                    <table id="Payments" class="table table-striped table-bordered dt-responsive nowrap" width="100%" cellspacing="0">
-                        <thead>
-                            <tr>
-                                <th>#</th>
-                                <th>PaymentMode</th>
-                                <th>Payment Type</th>
-                                <th>Member No</th>
-                                
-                                <th>Phone No</th>
-                                <th>Account No</th>
-                                <th>Card No</th>
-                                <th>Amount</th>
-                                <th>Status</th>
-                                <th>Document No</th>
-                                
-                               
 
-                            </tr>
-                        </thead>
-                        
-                    </table>
-                </div>
-        </main>
+        </div>
+        <!--//grids-->
+
     </div>
 </div>
+
 @section Scripts {
-<script type="text/javascript">
-        
-        $(document).ready(function () {
-            $('#Payments').DataTable({
-                "processing": true, // for show progress bar
-                "serverSide": true, // for process server side
-                "filter": true, // this is for disable filter (search box)
-                "orderMulti": false, // for disable multiple column at once
-                "ajax": {
-                    "url": "/Agents/LoadPayments",
-                    "type": "POST",
-                    "datatype": "json"
-                },
-                "columnDefs":
-                [{
-                        "targets": [0],
-                        "visible": true,
-                    "searchable": false
-                }
-                
-                ],
-                "columns": [
-                        { "data": "Id", "name": "Id", "autoWidth": true },  
-                        { "data": "PaymentMode", "name": "Payment Mode", "autoWidth": true }, 
-                        { "data": "PaymentType", "name": "Payment Type", "autoWidth": true },  
-                        { "data": "MemberNo", "name": "Member No", "autoWidth": true },
-                        { "data": "PhoneNo", "name": "Phone No", "autoWidth": true },  
-                        { "data": "AccountNo",  "name": "Account No", "autoWidth": true },  
-                        { "data": "CardNo", "name": "Card No", "autoWidth": true },  
-                        { "data": "Amount", "name": "Amount", "autoWidth": true },  
-                        { "data": "Status", "name": "Status", "autoWidth": true },  
-                        { "data": "DocumentNo", "name": "Document No", "autoWidth": true } 
-                ] 
+    <script src="~/lib/DataTables/media/js/jquery.dataTables.js"></script>
+    <script src="~/lib/datatables-bootstrap3/BS3/assets/js/datatables.js"></script>
+    <script src="~/lib/signalr/signalr-client-1.0.0-alpha2-final.min.js"></script>
+
+    <script type="text/javascript">
+
+        let startConnection = () => {
+            connection.start()
+                .then(e => {
+                    $("#connetion-status").text("Connection opened");
+                    $("#connetion-status").css("color", "green");
+                })
+                .catch(err => console.log(err));
+        };
+
+        let showAgents = (Agent) => {
+            $('#Registration').DataTable({
+
+                aaData: Agent,
+                aoColumns: [
+
+                    { mDataProp: "PhoneNo" },
+                    { mDataProp: "AccountNo" },
+                    { mDataProp: "CardNo" },
+                    { mDataProp: "Amount"},
+                    { mDataProp: "TransactionDate" },
+                    { mDataProp: "DocumentNo" },
+                    { mDataProp: "PaymentName" },
+                    {
+                         mRender: function (data, type, row) {
+            var linkEdit = '@Html.ActionLink("EditPayment", "EditPayment", new {Id= -1 },new {@class = "btn btn-danger" })';
+            linkEdit = linkEdit.replace("-1", row.Id);
+            return  linkEdit ;
+
+                         }
+                    }
+
+                ]
             });
+
+        };
+
+    //let refreshProductList = (Agent) => {
+    //    $('#product').find('option').remove();
+    //    products.forEach((product) => {
+    //        $('<option/>').val(product.name).html(product.name).appendTo('#product');
+    //    });
+    //}
+
+        let connection = new signalR.HubConnection(`http://${document.location.host}/inventory`, 'formatType=json&format=text');
+        startConnection();
+        $.fn.dataTable.ext.errMode = 'none';
+        showAgents(@Html.Raw(Model));
+        $.fn.dataTable.ext.errMode = 'none';
+        connection.onClosed = e => {
+            if (e) {
+                $("#connetion-status").text("Connection closed " + e);
+                $("#connetion-status").css("color", "red");
+            }
+            else {
+                $("#connetion-status").text("Connection closed");
+                $("#connetion-status").css("color", "green");
+            }
+            startConnection();
+        };
+
+        connection.on('UpdateAgents', Agent => {
+            $('#Registration').DataTable().fnClearTable();
+            $('#Registration').DataTable().fnAddData(Agent);
+
         });
-       
-</script>
+
+    </script>
 }

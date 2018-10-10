@@ -1,4 +1,4 @@
-﻿@model SignalRCore.Web.Models.People
+@model SignalRCore.Web.Models.Payments
 @{
     ViewData["Title"] = "Edit";
     Layout = "~/Views/Shared/_LayoutAgents.cshtml";
@@ -13,8 +13,8 @@
             <div class="progressbar-heading grids-heading">
                 <h2>Forms</h2>
             </div>
-            
-            @using (Html.BeginForm("Post", "Agents", FormMethod.Post, new { }))
+
+            @using (Html.BeginForm("PostPayment", "Agents", FormMethod.Post, new { }))
             {
                 @Html.ValidationSummary(true)
 
@@ -27,36 +27,30 @@
                     @Html.TextBoxFor(model => model.Id, new { @readonly = "readonly" })
                 </div>
                 <div class="editor-label">
-                    First Name
+                    Name
                 </div>
                 <div class="editor-field">
-                    @Html.TextBoxFor(model => model.FirstName)
+                    @Html.TextBoxFor(model => model.PaymentName)
 
                 </div>
                 <div class="editor-label">
-                    Last Name
+                    Amount
                 </div>
                 <div class="editor-field">
-                    @Html.TextBoxFor(model => model.LastName)
+                    @Html.TextBoxFor(model => model.Amount)
 
                 </div>
 
                 <div class="editor-label">
-                    IdentificationNo
-                </div>
-
-                <div class="editor-field">
-                    @Html.TextBoxFor(model => model.IdentificationNo)
-
-                </div>
-                <div class="editor-label">
-                    Phone
+                    Account No
                 </div>
                 <div class="editor-field">
-                    @Html.TextBoxFor(model => model.PhoneNumber)
+                    @Html.TextBoxFor(model => model.AccountNo)
 
                 </div>
-                
+
+
+
 
 
 

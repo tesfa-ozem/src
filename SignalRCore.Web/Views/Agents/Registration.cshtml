@@ -44,14 +44,11 @@
                             <thead>
                                 <tr>
                                     <th>#</th>
-                                    <th>IdNumber</th>
                                     <th>First Name</th>
-                                    <th>Middle Name</th>
-
                                     <th>Last Name</th>
-                                    <th>PhoneNumber</th>
-                                    <th>SUBCOUNTY</th>
-                                    <th>WARD</th>
+                                    <th>Phone Number</th>
+                                    <th>Id Number</th>
+                                    <th>Member Type</th>
                                     <th>Edit</th>
                                     
 
@@ -91,38 +88,26 @@
         
         let showAgents = (Agent) => {
             $('#Registration').DataTable({
-                "order": [[0, 'asc'], [1, 'asc']],
+          
                 aaData: Agent,
                 aoColumns: [
-                    {  mDataProp: "Id",sType: "numeric"},
-                    { mDataProp: "IdentificationType" ,sType: "string"},
-                    {  mDataProp: "FirstName", sType: "string"},
-                    {  mDataProp: "MiddleName", sType: "string"},
-                    {  mDataProp: "LastName", sType: "string"},
-                    { mDataProp: "PhoneNumber", sType: "string" },
-                    { mDataProp: "IdentificationNo", sType: "string"},
-                    { mDataProp: "MemberType", sType: "string" },
-                    { mDataProp: "Status", sType: "string" },
+                    { mDataProp: "Id" },
+                    { mDataProp: "FirstName" },
+                    { mDataProp: "LastName" },
+                    { mDataProp: "PhoneNumber" },
+                    { mDataProp: "IdentificationNo"},
+                    { mDataProp: "MemberType" }, 
                     {
                          mRender: function (data, type, row) {
-            var linkEdit = '@Html.ActionLink("Edit", "Edit", new {id= -1 })';
+            var linkEdit = '@Html.ActionLink("Edit", "Edit", new {Id= -1 },new {@class = "btn btn-danger" })';
             linkEdit = linkEdit.replace("-1", row.Id);
+            return  linkEdit ;
 
-            var linkDetails = '@Html.ActionLink("Details", "Details", new {id= -1 })';
-            linkDetails = linkDetails.replace("-1", row.Id);
-
-            var linkDelete = '@Html.ActionLink("Delete", "Delete", new {id= -1 })';
-            linkDelete = linkDelete.replace("-1", row.Id);
-
-            return " | " + linkEdit + " | " + linkDelete;
-        }
+                         }
                     }
-                    
-                    
-                   
                 ]
             });
-           
+            
         };
 
     //let refreshProductList = (Agent) => {

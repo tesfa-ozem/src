@@ -18,7 +18,7 @@ namespace SignalRCore.Web.Hubs
         private bool disposedValue = false;
         private readonly IInventoryRepository _repository;
         private readonly IHubContext<Inventory> _hubContext;
-        private SqlTableDependency<AppUsers> _tableDependency;
+        private SqlTableDependency<People> _tableDependency;
         
 
         public InventoryDatabaseSubscription(IInventoryRepository repository, IHubContext<Inventory> hubContext)
@@ -29,10 +29,7 @@ namespace SignalRCore.Web.Hubs
 
         public void Configure(string connectionString)
         {
-            _tableDependency = new SqlTableDependency<AppUsers>(connectionString, null, null, null, null, DmlTriggerType.All);
-            _tableDependency.OnChanged += Changed;
-            _tableDependency.OnError += TableDependency_OnError;
-            _tableDependency.Start();
+            
 
             Console.WriteLine("Waiting for receiving notifications...");
         }
@@ -42,7 +39,7 @@ namespace SignalRCore.Web.Hubs
             Console.WriteLine($"SqlTableDependency error: {e.Error.Message}");
         }
 
-        private void Changed(object sender, RecordChangedEventArgs<AppUsers> e)
+        private void Changed(object sender, RecordChangedEventArgs<People> e)
         {
             if (e.ChangeType != ChangeType.None)
             {

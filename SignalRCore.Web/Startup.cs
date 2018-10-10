@@ -25,6 +25,7 @@ namespace SignalRCore.Web
 
             builder.AddEnvironmentVariables();
             Configuration = builder.Build();
+            ConnectionProperties.Configuration = Configuration;
         }
 
         // This method gets called by the runtime. Use this method to add services to the container.

@@ -1,77 +1,95 @@
-﻿@{
-    ViewData["Title"] = "Login";
-    Layout = "~/Views/Shared/_LayoutAgents.cshtml";
-}
-@model Accounts.ViewModels.AgentsViewModel
-@{
-    ViewData["Title"] = "Create Agent";
-}
-
-
+﻿
 <div class="container">
-    @await Html.PartialAsync("_NavPartial")
-    <div class="row">
-        <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
-            <div class='signup'>
-                <form asp-controller="Agents" asp-action="RegisterSingleUser" method="post">
-                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
 
-                    <div class="form-row">
-                        <div class="form-group ">
-                            <label asp-for="FirstName" class="control-label"></label>
-                            <input asp-for="FirstName" class="form-control" />
-                            <span asp-validation-for="FirstName" class="text-danger"></span>
-                        </div>
 
-                        <div class="form-group ">
-                            <label asp-for="LastName" class="control-label"></label>
-                            <input asp-for="LastName" class="form-control" />
-                            <span asp-validation-for="LastName" class="text-danger"></span>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label asp-for="UserName" class="control-label"></label>
-                        <input asp-for="UserName" class="form-control" />
-                        <span asp-validation-for="UserName" class="text-danger"></span>
-                    </div>
-                    <div class="form-group">
-                        <label asp-for="PhoneNumber" class="control-label"></label>
-                        <input asp-for="PhoneNumber" class="form-control" />
-                        <span asp-validation-for="PhoneNumber" class="text-danger"></span>
-                    </div>
-                    <div class="form-row">
-                        <label asp-for="IdNumber" class="control-label"></label>
-                        <input asp-for="IdNumber" class="form-control" />
-                        <span asp-validation-for="IdNumber" class="text-danger"></span>
-                    </div>
-                    <div class="form-row">
-                        <label asp-for="SUBCOUNTY" class="control-label"></label>
-                        <input asp-for="SUBCOUNTY" class="form-control" />
-                        <span asp-validation-for="SUBCOUNTY" class="text-danger"></span>
-                    </div>
-                    <div class="form-row">
-                        <label asp-for="WARD" class="control-label"></label>
-                        <input asp-for="WARD" class="form-control" />
-                        <span asp-validation-for="WARD" class="text-danger"></span>
-                    </div>
-                    <div class="form-row">
-                        <label asp-for="VILLAGE" class="control-label"></label>
-                        <input asp-for="VILLAGE" class="form-control" />
-                        <span asp-validation-for="VILLAGE" class="text-danger"></span>
-                    </div>
-                    <div class="form-group">
-                        <div class="form-group">
-                            <input type="submit" value="Create" class="btn btn-default" />
-                        </div>
-                    </div>
-
-                </form>
-            </div>
-
-        </main>
-    </div>
 
 </div>
 
 
+
+@model SignalRCore.Web.Models.Payments
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Views/Shared/_LayoutAgents.cshtml";
+}
+@await Html.PartialAsync("_NavPartial")
+@await Html.PartialAsync("_MenuBarPartial")
+
+<div id="page-wrapper">
+    <div class="main-page">
+        <!--grids-->
+        <div class="grids">
+            <div class="progressbar-heading grids-heading">
+                <h2>Forms</h2>
+            </div>
+
+            @using (Html.BeginForm("CreatePayment", "Agents", FormMethod.Post, new { }))
+            {
+                @Html.ValidationSummary(true)
+
+            <fieldset>
+                <legend></legend>
+                <div class="editor-label">
+                     Name
+                </div>
+                <div class="editor-field">
+                    @Html.TextBoxFor(model => model.PaymentName)
+
+                </div>
+                <div class="editor-label">
+                    Id Number
+                </div>
+                <div class="editor-field">
+                    @Html.TextBoxFor(model => model.AccountNo)
+
+                </div>
+                <div class="editor-label">
+                    Amount
+                </div>
+                <div class="editor-field">
+                    @Html.TextBoxFor(model => model.Amount)
+
+                </div>
+
+                <div class="editor-label">
+                    Phone Number
+                </div>
+
+                <div class="editor-field">
+                    @Html.TextBoxFor(model => model.PhoneNo)
+
+                </div>
+                <div class="editor-label">
+                    Transaction Date
+                </div>
+                <div class="editor-field">
+                    @Html.TextBoxFor(model => model.TransactionDate, "{0:yyyy-MM-dd}", new { type = "date" })
+
+                </div>
+                <div class="editor-label">
+                    Transaction Code
+                </div>
+                <div class="editor-field">
+                    @Html.TextBoxFor(model => model.DocumentNo)
+
+                </div>
+
+
+
+
+
+
+
+                <p>
+                    <input type="submit" value="Update" id="btnsave" />
+                </p>
+            </fieldset>
+            }
+            <div>
+                @Html.ActionLink("Close", "Dashboard")
+            </div>
+        </div>
+        <!--//grids-->
+    </div>
+</div>
 

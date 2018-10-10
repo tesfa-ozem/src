@@ -16,6 +16,12 @@ namespace SignalRCore.Web.Repository
 
         
         public IEnumerable<People> Peoples => GetAgents();
+
+        private IEnumerable<People> GetAgents()
+        {
+            throw new NotImplementedException();
+        }
+
         public DatabaseRepository(Func<InventoryContext> context)
         {
             _contextFactory = context;
@@ -58,13 +64,7 @@ namespace SignalRCore.Web.Repository
             }
         }
 
-       public IEnumerable<People> GetAgents()
-        {
-            using (var context = _contextFactory.Invoke())
-            {
-                return context.People.ToList();
-            }
-        }
+       
 
     }
 }
